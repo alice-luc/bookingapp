@@ -88,3 +88,7 @@ db.sqlite3
 
 # idea
 .idea
+
+
+#node
+node_modules
