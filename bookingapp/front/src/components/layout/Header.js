@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 
 export class Header extends Component {
     render() {
         return (
             <nav className="nav nav-pills nav-fill">
-                <a className="nav-link" aria-current="page" href="#">Book</a>
-                <a className="nav-link" href="#">See Booking</a>
-                <a className="nav-link" href="#">Log In</a>
+                <Link to="">Book Parking Space</Link>
+                <Link to="login/">Log in</Link>
             </nav>
         )
     }

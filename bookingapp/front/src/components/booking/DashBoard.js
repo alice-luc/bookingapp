@@ -3,12 +3,12 @@ import CreateForm from './CreateForm'
 import List from './List'
 
 
-export class DashBoard extends Component {
+class DashBoard extends Component {
     render() {
         return (
             <Fragment>
-                <CreateForm />
                 <List />
+                <CreateForm />
             </Fragment>
         )
     }

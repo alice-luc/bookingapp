@@ -1,5 +1,9 @@
 export const GET_BOOKING_LIST = 'GET_BOOKING_LIST';
+// export const GET_BOOKING = 'GET_BOOKING';
 export const CHANGE_BOOKING = 'CHANGE_BOOKING';
 export const ADD_BOOKING = 'ADD_BOOKING';
 export const DELETE_BOOKING = 'DELETE_BOOKING';
-export const GET_PARKING_SPACES = 'GET_PARKING_SPACES'
+export const GET_PARKING_SPACES = 'GET_PARKING_SPACES';
+export const CHANGE_ERROR = 'CHANGE_ERROR';
+export const ADD_ERROR = 'ADD_ERROR';
+export const DELETE_ERROR = 'DELETE_ERROR';

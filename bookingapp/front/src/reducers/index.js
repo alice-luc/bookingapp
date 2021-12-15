@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
 import bookings from './bookings';
+import parking_spaces from './bookings';
+import errors from './bookings';
 
 
 export default combineReducers({
-    bookings
+    bookings,
+    parking_spaces,
+    errors
 });
 

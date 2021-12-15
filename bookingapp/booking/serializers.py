@@ -1,31 +1,24 @@
 from rest_framework import serializers
+
 from .models import *
 
 
 class BookingSerializer(serializers.ModelSerializer):
 
-    # def validate(self, attrs):
-    #     pass
+    def validate(self, data):
+        date_start = data.get('date_start', None)
+        date_end = data.get('date_end', None)
+
+        if date_end < date_start:
+            raise serializers.ValidationError({'error': 'Start time should not be earlier than the end time'})
+        if date_start < now():
+            raise serializers.ValidationError({'error': 'You cant book parking space for the past'})
+
+        return data
 
     class Meta:
         model = Booking
         fields = '__all__'
-
-
-# class BookingCreateSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#         model = Booking
-#         fields = '__all__'
-
-    # def create(self, validated_data):
-    #
-    #     booking, _ = Booking.objects.create(
-    #         date_start=validated_data.get('date_start', None),
-    #         date_end=validated_data.get('date_end', None),
-    #         parking_space_id=validated_data.get('parking_space_id', None)
-    #     )
-    #     return booking
 
 
 class ParkingSpaceSerializer(serializers.ModelSerializer):
