@@ -21,3 +21,6 @@ class Booking(models.Model):
     parking_space = models.ForeignKey(ParkingSpace, on_delete=models.CASCADE)
     date_start = models.DateTimeField(default=now())
     date_end = models.DateTimeField(default=now()+timedelta(hours=4))
+
+    class Meta:
+        ordering = ['date_start']

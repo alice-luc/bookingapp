@@ -26,3 +26,11 @@ class ParkingSpaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = ParkingSpace
         fields = '__all__'
+
+#
+# class UserSerializer(serializers.ModelSerializer):
+#     # snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
+#
+#     class Meta:
+#         model = User
+#         fields = ('user_permissions', 'username', 'id')

@@ -1,16 +1,16 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
+from rest_framework_simplejwt.authentication import JWTTokenUserAuthentication
 
 from .permissions import *
 from .serializers import *
 from .services.booking_available_time import time_not_available_error_message, check_availability
 
 
-class BookingViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
+class BookingViewSet(viewsets.ModelViewSet):
 
     queryset = Booking.objects.all()
-    permissions_classes = [permissions.IsAuthenticated]
+    permissions_classes = [JWTTokenUserAuthentication]
     serializer_class = BookingSerializer
     permissions_classes_by_action = {
         'get': [BookingViewPermission],
@@ -19,6 +19,7 @@ class BookingViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
         'destroy': [BookingDeletePermission],
     }
 
+    # Must be a way to unite update and create methods, but here's what the official documentation offers to do
     def perform_create(self, serializer):
 
         if serializer.is_valid():
@@ -42,7 +43,7 @@ class BookingViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
                 raise ValidationError({'error': time_not_available_error_message, 'body': nearer_available_time})
 
 
-class ParkingSpaceViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
+class ParkingSpaceViewSet(viewsets.ModelViewSet):
 
     queryset = ParkingSpace.objects.all()
     permissions_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
@@ -53,3 +54,4 @@ class ParkingSpaceViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
         'destroy': [ParkingSpaceDeletePermission],
         'update': [ParkingSpaceChangePermission]
     }
+
