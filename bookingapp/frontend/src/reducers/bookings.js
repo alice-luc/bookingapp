@@ -1,4 +1,4 @@
-import { GET_BOOKING_LIST, GET_PARKING_SPACES, DELETE_BOOKING } from '../actions/types';
+import { GET_BOOKING_LIST, GET_PARKING_SPACES, DELETE_BOOKING, DELETE_PARKING_SPACE } from '../actions/types';
 
 
 const initState = {
@@ -22,6 +22,11 @@ export default function(state=initState, action) {
             return {
                 ...state,
                 bookings: state.bookings.filter(booking => booking.id != action.payload)
+            };
+        case DELETE_PARKING_SPACE:
+            return {
+                ...state,
+                parking_spaces: state.parking_spaces.filter(parking_space => parking_space.id != action.payload)
             };
         default:
             return state;

@@ -1,7 +1,7 @@
 export const GET_BOOKING_LIST = 'GET_BOOKING_LIST';
 export const DELETE_BOOKING = 'DELETE_BOOKING';
 export const GET_PARKING_SPACES = 'GET_PARKING_SPACES';
-
+export const DELETE_PARKING_SPACE = 'DELETE_PARKING_SPACE';
 export const PERMISSIONS_MAPPING = {
 
     'Employee': {

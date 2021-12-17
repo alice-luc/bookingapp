@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import { PERMISSIONS_MAPPING } from '../../actions/types'
 import CreateBookingForm from '../booking/CreateBookingForm';
-import CreateParkingSpace from '../booking/CreateParkingSpace';
+import ParkingSpaceForm from '../booking/CreateParkingSpace';
 import List from '../booking/List';
 
 class Home extends Component {
@@ -47,7 +47,7 @@ class Home extends Component {
                 </div>
                 <br />
                 <br />
-            { this.state.page == 'add_parking' ? (<CreateParkingSpace />) : null }
+            { this.state.page == 'add_parking' ? (<ParkingSpaceForm />) : null }
             { this.state.page == 'view_bookings' ? (<List />) : null }
             { this.state.page == 'add_booking' ? (<CreateBookingForm />) : null }
             </div>
