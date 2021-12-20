@@ -1,1 +1,42 @@
+Project `bookingapp` includes 2 apps named `booking`- backend and `frontend` - frontend, obviously
+`settings` folder contains settings configuration split into 3 files:
+`base.py` - for common settings
+`development.py` - for dev 
+`production.py` = for prod
 
+**Installed packages:**
+
+~~backend:~~
+`rest_framework` - to create Rest API
+`djoser` & `rest_framework_simplejwt` - to provide authentication. You might find its configuration in settings file.
+
+~~frontend:~~
+`ReactJS` - for building frontend conponents
+`axios` - for making internal requests
+`redux` - for dispatching responses into fe storage
+`babel` - for compiling frontend parts
+
+**Endpoints:**
+`api/bookings/`- to interract with bookings by api **methods**: `get` `put` `post`  `delete`. Optional postfix /<int:pk>
+`api/parcing_space/` - to interract with parking spaces by api **methods**: `get` `post` `delete`. Optional postfix /<int:pk>
+
+'/' - to interract with frontend views
+
+
+
+**booking**
+Contains all the backend parts. 
+Views are stored in file named `api.py`
+Custom data validation functions stored in `services` directory. Because additional requireents were not specified, basic booking algorythm is performed. 
+So in order to check wether the parking space is available, system simply serializes data from booking records and builds ann array with available time intervals. 
+The better algoryth may be implemented, such as storing slots in reddis and building bool vectors for each day f.e.
+
+Serializer validation also performed. User cant make booking for the past, either book time back forward
+
+**frontend**
+Contains all the frontend parts.
+`src` - main frontend directory containing:
+  `actions` - for api requests functions(`bookings`) and storing const wariables(`types`)
+  `redusers` - for dispatching requests
+  `components` - for React components
+Permissions are hardcoded in `src/actions/types.js`. In case to provide scaleability there might be a need to create custom permission model and an endpoint.
