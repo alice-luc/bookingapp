@@ -10,7 +10,7 @@ COPY req.txt /src/backend
 
 RUN pip install --upgrade pip && pip install -r req.txt
 COPY . /src/app
-RUN cd /src/app/frontend && npm run build && cd ..
+RUN npm install && npm run build
 
 
 EXPOSE 8000
