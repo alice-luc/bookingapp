@@ -20,14 +20,5 @@ export const PERMISSIONS_MAPPING = {
         can_change_booking: true,
         can_create_parking_space: true,
         can_view_parking_space: true
-    },
-
-    'alicelews': {
-        can_view_booking: true,
-        can_create_booking: true,
-        can_delete_booking: true,
-        can_change_booking: true,
-        can_create_parking_space: true,
-        can_view_parking_space: true
     }
 };
